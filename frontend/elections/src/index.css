@@ -67,6 +67,10 @@ button:focus-visible {
   }
 } */
 
+html {
+  direction: rtl;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
