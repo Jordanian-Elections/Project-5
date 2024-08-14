@@ -7,6 +7,7 @@ import Electoral from "./components/Electoral-lists/Electoral";
 import AboutUS from "./components/AboutUs/AboutUS";
 import ContactUS from "./components/ContactUs/ContactUS";
 import Footer from "./components/Footer/Footer";
+import ResultsPage from "./pages/Results/Results";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/signin" element={<SignIn />} />
       </Routes>
       <Footer />
+      <ResultsPage />
     </Router>
   );
 };
