@@ -1,4 +1,4 @@
-const knex = require('../knex'); // Import your knex instance
+const knex = require('../knex-config'); // Import your knex instance
 
 exports.getAllPartyLists = async (req, res) => {
   try {

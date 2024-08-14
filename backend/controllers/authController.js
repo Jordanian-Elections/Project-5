@@ -1,7 +1,7 @@
 // controllers/authController.js
 const authService = require('../services/authService');
 const bcrypt = require('bcrypt');
-const knex = require('../knex');
+const knex = require('../knex-config');
 
 exports.login = async (req, res) => {
     try {
