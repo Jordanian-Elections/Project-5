@@ -107,6 +107,7 @@
 /////////////////////////////////////////////////
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginForm({ nationalID, setNationalID, name, setName, handleLogin }) {
   const [errors, setErrors] = useState({ nationalID: '', name: '' });
@@ -181,6 +182,7 @@ function LoginForm({ nationalID, setNationalID, name, setName, handleLogin }) {
       >
          انشاء
       </button>
+      <Link to={"/login"} >عندك حساب</Link>
     </div>
   );
 }

@@ -73,8 +73,8 @@ const Header = () => {
           <Link to="/" className="hover:text-gray-300 ml-12">
             الرئيسية
           </Link>
-          <Link to="/electoral" className="hover:text-gray-300">
-            القوائم الإنتخابية
+          <Link to="/circle" className="hover:text-gray-300">
+            الدوائر الإنتخابية
           </Link>
           <Link to="/about" className="hover:text-gray-300">
             من نحن

@@ -9,10 +9,12 @@ import Login from "./components/Login/Login";
 import LoginForm from "./components/SignIn/LoginForm";
 import PartyListsPage from "./components/PartyListsPage/PartyListsPage"
 import LocalLists from "./components/LocalLists/LocalLists";
-
+import ElectoralDistricts from "./components/ElectoralDistricts/ElectoralDistricts";
 
 
 const App = () => {
+
+ 
   return (
     <Router>
       <Routes>
@@ -24,6 +26,7 @@ const App = () => {
         <Route path="/signup" element={<SignIn />} />
         <Route path="/local-lists" element={<LocalLists />} />
         <Route path="/party-lists" element={<PartyListsPage />} />
+        <Route path="/circle" element={<ElectoralDistricts />} />
 
 
       </Routes>
