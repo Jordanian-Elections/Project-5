@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsUpdates = ({ newsUpdates }) => (
   <section className="mb-12 p-4">
-    <h2 className="text-4xl font-bold mb-8 text-center text-jordanian-red">آخر الأخبار</h2>
+    <h2 className="text-4xl font-extrabold text-center text-jordanian-red mb-20">آخر الأخبار</h2>
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {newsUpdates.map((news) => (
         <div
