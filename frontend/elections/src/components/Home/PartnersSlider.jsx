@@ -27,10 +27,10 @@ import React from 'react';
 
 const logoUrls = [
     "https://th.bing.com/th/id/OIP.bG-Cg3IqmBJsdUGKfpz2agHaEE?w=286&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "https://www.svgrepo.com/show/303363/toyota-1-logo.svg",
-    "https://www.svgrepo.com/show/303429/dodge-ram-logo.svg",
-    "https://www.svgrepo.com/show/330144/chrysler.svg",
-    "https://www.svgrepo.com/show/303648/hyundai-automobiles-1-logo.svg",
+    "https://th.bing.com/th/id/OIP.-ChMZ2Jm_8ccPSaKqh9unwHaE7?w=289&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "https://th.bing.com/th/id/OIP.seAzigS6_Wkj_UP-__kejgHaEa?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "https://th.bing.com/th/id/OIP.LcJcHoGqUAlo_tEJmKImXAHaEE?w=337&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "https://th.bing.com/th/id/OIP.TLZ-LyhRTsxYcYzQez48igHaHa?w=152&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "https://www.svgrepo.com/show/446875/gmc.svg", 
     "https://www.svgrepo.com/show/330140/chevrolet.svg", 
     "https://www.svgrepo.com/show/330787/kia.svg", 
@@ -43,7 +43,7 @@ const logoUrls = [
 const Logocar = () => {
     return (
         <section className='my-10' style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '2rem', fontSize: '2rem', fontWeight: 'bold', color:'black' }}>الجهات المعنيه والشركاء </h2>
+            <h2  className='text-4xl font-extrabold mb-8 text-center text-jordanian-red mb-20'>الجهات المعنيه والشركاء </h2>
             <div style={{ position: 'relative', width: '100%', height: '7rem' }}>
                 <div style={{
                     display: 'flex',
