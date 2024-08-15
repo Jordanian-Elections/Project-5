@@ -85,6 +85,13 @@ const Header = () => {
           <Link to="/contact" className="hover:text-gray-300">
             تواصل معنا
           </Link>
+          <Link to="/VotingApp" className="hover:text-gray-300">
+            تصويت محلي
+          </Link>
+          <Link to="/VotePage" className="hover:text-gray-300">
+            تصويت 
+          </Link>
+          
         </div>
         <div>
           {isLoggedIn ? (
