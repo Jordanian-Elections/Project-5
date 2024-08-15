@@ -76,6 +76,9 @@ const Header = () => {
           <Link to="/circle" className="hover:text-gray-300">
             الدوائر الإنتخابية
           </Link>
+          <Link to="/requests" className="hover:text-gray-300">
+            طلبات القوائم الإنتخابية
+          </Link>
           <Link to="/about" className="hover:text-gray-300">
             من نحن
           </Link>

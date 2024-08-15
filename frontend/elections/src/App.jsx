@@ -10,6 +10,7 @@ import LoginForm from "./components/SignIn/LoginForm";
 import PartyListsPage from "./components/PartyListsPage/PartyListsPage";
 import LocalLists from "./components/LocalLists/LocalLists";
 import ElectoralDistricts from "./components/ElectoralDistricts/ElectoralDistricts";
+import ElectionRequests from "./components/Elections Requests/electionsRequests";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/electoral" element={<Electoral />} />
+        <Route path="/requests" element={<ElectionRequests />} />
         <Route path="/about" element={<AboutUS />} />
         <Route path="/contact" element={<ContactUS />} />
         <Route path="/login" element={<Login />} />

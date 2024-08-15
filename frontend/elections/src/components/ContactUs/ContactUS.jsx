@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+import axios from "axios"; // Make sure to install axios: npm install axios
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     subject: "",
     message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,12 +23,22 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the formData to your backend
-    console.log("Form data submitted:", formData);
-    // For demonstration, we'll just set isSubmitted to true
-    setIsSubmitted(true);
+    setError("");
+
+    try {
+      // Replace '/api/contact' with your actual API endpoint
+      const response = await axios.post(
+        "http://localhost:5000//api/requests/contact",
+        formData
+      );
+      console.log("Form data submitted:", response.data);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setError("حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.");
+    }
   };
 
   return (
@@ -102,24 +114,7 @@ const ContactUs = () => {
                   placeholder="أدخل اسمك الكامل"
                 />
               </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="email"
-                >
-                  البريد الإلكتروني
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="أدخل بريدك الإلكتروني"
-                />
-              </div>
+
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -184,6 +179,7 @@ const ContactUs = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

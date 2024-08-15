@@ -77,6 +77,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json()); // Ensures the server can parse JSON payloads
 app.use(express.json()); // Handles JSON payloads
+console.log("errr ***");
 
 // Routes
 app.use("/api/auth", authRoutes);
@@ -84,7 +85,7 @@ app.use("/api/local-lists", localListsRoutes);
 app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute); // Adjusted endpoint
 app.use("/api/userAuth", userAuthRoutes); // Ensure this path matches your routes
-app.post("/api/contact", requestsRoutes);
+app.post("/api/requests", requestsRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
