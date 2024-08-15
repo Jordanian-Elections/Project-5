@@ -1,4 +1,7 @@
 const knex = require("../knex-config"); // Import your knex instance
+const contact_request = require("../migrations/contact_reques");
+const users = require("../migrations/20240814133623_users");
+const LocalElectionRequest = require("../migrations/LocalElectionRequest");
 
 exports.contactRequest = async (req, res) => {
   // id is a FK from users table
@@ -20,5 +23,44 @@ exports.contactRequest = async (req, res) => {
     res
       .status(500)
       .json({ error: "An error occurred while processing your request." });
+  }
+};
+
+exports.getUserByNationalId = async (req, res) => {
+  try {
+    const { nationalId } = req.params;
+    const user = await knex("users").where({ national_id: nationalId }).first();
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching user data",
+      error: error.message,
+    });
+  }
+};
+
+exports.createLocalElectionRequest = async (req, res) => {
+  try {
+    const { national_id, local_list_name, members } = req.body;
+    const newRequest = await knex("local_election_requests")
+      .insert({
+        national_id,
+        local_list_name,
+        members: JSON.stringify(members),
+      })
+      .returning("id");
+
+    res.status(201).json({
+      message: "Local election request created successfully",
+      id: newRequest[0],
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error creating local election request",
+      error: error.message,
+    });
   }
 };

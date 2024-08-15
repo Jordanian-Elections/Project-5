@@ -1,8 +1,11 @@
 import React from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const PartyElectionForm = () => {
   return (
     <form className="space-y-4">
+      <Header />
       <div>
         <label className="block text-gray-700">Party Name</label>
         <input
@@ -22,6 +25,7 @@ const PartyElectionForm = () => {
       <button type="submit" className="bg-green-500 text-white p-2 rounded-md">
         Create Party Election
       </button>
+      <Footer />
     </form>
   );
 };
