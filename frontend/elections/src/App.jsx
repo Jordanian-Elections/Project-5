@@ -11,6 +11,8 @@ import PartyListsPage from "./components/PartyListsPage/PartyListsPage";
 import LocalLists from "./components/LocalLists/LocalLists";
 import ElectoralDistricts from "./components/ElectoralDistricts/ElectoralDistricts";
 import ElectionRequests from "./components/Elections Requests/electionsRequests";
+import PaymentComponent from "./components/PaymentComponent/Payment";
+
 
 const App = () => {
   return (
@@ -26,6 +28,10 @@ const App = () => {
         <Route path="/local-lists" element={<LocalLists />} />
         <Route path="/party-lists" element={<PartyListsPage />} />
         <Route path="/circle" element={<ElectoralDistricts />} />
+        <Route path="/party-lists" element={<PartyListsPage />} />
+        <Route path="/PaymentComponent" element={<PaymentComponent />} />
+
+
       </Routes>
     </Router>
   );
