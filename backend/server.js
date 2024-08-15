@@ -71,7 +71,9 @@ const partyListsRoutes = require("./routes/partyListsRoutes");
 const electoralDistrictsRoute = require("./routes/electoralDistricts");
 const userAuthRoutes = require("./routes/userAuthRoutes"); // Adjust path as necessary
 const requestsRoutes = require("./routes/requestsRoutes");
-
+const routerVotingCircle = require('./routes/routerVotingCircle');
+const routerVotingparty = require('./routes/routingPartylist')
+ 
 const app = express();
 
 // Middleware
@@ -87,6 +89,11 @@ app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute); // Adjusted endpoint
 app.use("/api/userAuth", userAuthRoutes); // Ensure this path matches your routes
 app.post("/api/requests", requestsRoutes);
+
+
+//routes tasneem
+app.use('/api/voting', routerVotingCircle);
+app.use("/" , routerVotingparty)
 
 
 // striiiiiiiiiiiiiiiiiiip
@@ -130,7 +137,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
