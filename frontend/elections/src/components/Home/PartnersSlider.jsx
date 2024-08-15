@@ -23,20 +23,25 @@
 // );
 
 // export default PartnersSlider;
+
+
+
+
+
 import React from 'react';
 
 const logoUrls = [
     "https://th.bing.com/th/id/OIP.bG-Cg3IqmBJsdUGKfpz2agHaEE?w=286&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "https://th.bing.com/th/id/OIP.-ChMZ2Jm_8ccPSaKqh9unwHaE7?w=289&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "https://th.bing.com/th/id/OIP.seAzigS6_Wkj_UP-__kejgHaEa?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "https://th.bing.com/th/id/OIP.U6CzKWCNL_b6O3EVb4WtBgHaEY?w=278&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "https://th.bing.com/th/id/OIP.LcJcHoGqUAlo_tEJmKImXAHaEE?w=337&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "https://th.bing.com/th/id/OIP.TLZ-LyhRTsxYcYzQez48igHaHa?w=152&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "https://www.svgrepo.com/show/446875/gmc.svg", 
-    "https://www.svgrepo.com/show/330140/chevrolet.svg", 
-    "https://www.svgrepo.com/show/330787/kia.svg", 
-    "https://www.svgrepo.com/show/303349/ford-1-logo.svg", 
-    "https://www.svgrepo.com/show/303249/mercedes-benz-9-logo.svg", 
-    "https://www.svgrepo.com/show/342292/tesla.svg", 
+    "https://th.bing.com/th/id/OIP.seAzigS6_Wkj_UP-__kejgHaEa?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "https://th.bing.com/th/id/OIP.U6CzKWCNL_b6O3EVb4WtBgHaEY?w=278&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", 
+    // "https://www.svgrepo.com/show/330140/chevrolet.svg", 
+    // "https://www.svgrepo.com/show/330787/kia.svg", 
+    // "https://www.svgrepo.com/show/303349/ford-1-logo.svg", 
+    // "https://www.svgrepo.com/show/303249/mercedes-benz-9-logo.svg", 
+    // "https://www.svgrepo.com/show/342292/tesla.svg", 
 ];
 
 
