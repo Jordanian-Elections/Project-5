@@ -1,62 +1,54 @@
-import React, { useState } from "react";
-import LocalElectionForm from "./LocalElectionForm";
-import PartyElectionForm from "./PartyElectionForm";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { VoteIcon, FlagIcon } from "lucide-react";
 
 const ElectionRequests = () => {
-  const [selectedRequest, setSelectedRequest] = useState(null);
+  const navigate = useNavigate();
 
   return (
-    <div className="p-4 space-y-6">
-      {!selectedRequest && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="min-h-screen bg-gradient-to-b from-green-900 to-white text-white">
+      <Header />
+
+      <main className="p-8 my-14 mb-28">
+        <h1 className="text-4xl font-bold text-center mb-8">
+          قدم طلبك لإنشاء قائمة إنتخابية
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           <div
-            className="p-6 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={() => setSelectedRequest("local")}
+            className="w-80 h-80 bg-black bg-opacity-50 backdrop-blur-md rounded-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl cursor-pointer"
+            onClick={() => navigate("/local-form")}
           >
-            <h2 className="text-xl font-semibold mb-4">
-              Local Election Request
-            </h2>
-            <p className="text-gray-700">
-              Create a new local election request.
-            </p>
+            <div className="p-6 text-center h-full flex flex-col items-center justify-center">
+              <VoteIcon size={48} className="text-red-500 mb-4" />
+              <h2 className="text-2xl font-semibold mb-4">
+                طلب إنشاء قائمة محلية
+              </h2>
+              <p>قدم طلبًا للمشاركة في الانتخابات المحلية وكن صوتًا لمجتمعك</p>
+            </div>
           </div>
 
           <div
-            className="p-6 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={() => setSelectedRequest("party")}
+            className="w-80 h-80 bg-black bg-opacity-50 backdrop-blur-md rounded-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl cursor-pointer"
+            onClick={() => navigate("/party-form")}
           >
-            <h2 className="text-xl font-semibold mb-4">
-              Party Election Request
-            </h2>
-            <p className="text-gray-700">
-              Create a new party election request.
-            </p>
+            <div className="p-6 text-center h-full flex flex-col items-center justify-center">
+              <FlagIcon size={48} className="text-red-500 mb-4" />
+              <h2 className="text-2xl font-semibold mb-4">
+                طلب إنشاء قائمة حزبية
+              </h2>
+              <p>
+                قدم طلبًا للمشاركة في الانتخابات الحزبية وشارك في تشكيل مستقبل
+                الأردن
+              </p>
+            </div>
           </div>
         </div>
-      )}
+      </main>
 
-      {selectedRequest === "local" && (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Local Election Form</h2>
-          <LocalElectionForm />
-        </div>
-      )}
-
-      {selectedRequest === "party" && (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Party Election Form</h2>
-          <PartyElectionForm />
-        </div>
-      )}
-
-      {selectedRequest && (
-        <button
-          className="mt-4 p-2 bg-gray-200 text-gray-700 rounded-md"
-          onClick={() => setSelectedRequest(null)}
-        >
-          Back to Requests
-        </button>
-      )}
+      <Footer />
     </div>
   );
 };

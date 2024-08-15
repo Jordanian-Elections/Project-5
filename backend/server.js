@@ -85,7 +85,7 @@ app.use("/api/local-lists", localListsRoutes);
 app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute); // Adjusted endpoint
 app.use("/api/userAuth", userAuthRoutes); // Ensure this path matches your routes
-app.post("/api/requests", requestsRoutes);
+app.use("/api/requests", requestsRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
