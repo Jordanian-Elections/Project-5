@@ -12,6 +12,7 @@ import NewsUpdates from "./NewsUpdates";
 import PartnersSlider from "./PartnersSlider";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import FAQSection from "./FAQSection";
 // import Carousel from "../Carusor";
 
 const HomePage = () => {
@@ -92,6 +93,7 @@ const HomePage = () => {
         <VoterCounts voterCount={voterCount} />
         <NewsUpdates newsUpdates={newsUpdates} />
         <PartnersSlider partners={partners} />
+        <FAQSection />
       </main>
       {/* <Carousel/> */}
     </div>
