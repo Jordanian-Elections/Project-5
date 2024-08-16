@@ -30,7 +30,7 @@ const ContactUs = () => {
     try {
       // Replace '/api/contact' with your actual API endpoint
       const response = await axios.post(
-        "http://localhost:5000//api/requests/contact",
+        "http://localhost:1000/api/requests/contact",
         formData
       );
       console.log("Form data submitted:", response.data);
