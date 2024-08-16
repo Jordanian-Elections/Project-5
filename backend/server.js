@@ -72,6 +72,8 @@ const userAuthRoutes = require("./routes/userAuthRoutes"); // Adjust path as nec
 const requestsRoutes = require("./routes/requestsRoutes");
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
+const adsRoutes = require('./routes/adsRoutes');
+
 
 const app = express();
 
@@ -89,6 +91,9 @@ app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute); // Adjusted endpoint
 app.use("/api/userAuth", userAuthRoutes); // Ensure this path matches your routes
 app.use("/api/requests", requestsRoutes);
+
+app.use('/api', adsRoutes);
+
 
 //routes tasneem
 app.use("/api/voting", routerVotingCircle);
@@ -135,7 +140,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
