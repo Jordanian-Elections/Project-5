@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -15,8 +16,6 @@ const LocalElectionForm = () => {
     local_list_name: "",
     members: [],
   });
-  const [cities, setCities] = useState([]);
-  const [circles, setCircles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -58,11 +57,31 @@ const LocalElectionForm = () => {
   };
 
   const handleAddMember = async () => {
-    if (formData.members.length >= 3) {
-      setError("يمكنك إضافة 3 أعضاء كحد أقصى");
-      return;
-    }
-    const memberId = prompt("أدخل الرقم الوطني للعضو");
+    // if (formData.members.length >= 3) {
+    //   Swal.fire({
+    //     icon: "warning",
+    //     title: "تحذير",
+    //     text: "يمكنك إضافة 3 أعضاء كحد أقصى",
+    //     confirmButtonText: "موافق",
+    //   });
+    //   return;
+    // }
+
+    const { value: memberId } = await Swal.fire({
+      title: "إضافة عضو",
+      input: "text",
+      inputLabel: "أدخل الرقم الوطني للعضو",
+      inputPlaceholder: "الرقم الوطني",
+      confirmButtonText: "إضافة",
+      cancelButtonText: "إلغاء",
+      showCancelButton: true,
+      inputValidator: (value) => {
+        if (!value) {
+          return "يجب إدخال الرقم الوطني للعضو";
+        }
+      },
+    });
+
     if (memberId) {
       try {
         const response = await axios.get(
@@ -73,8 +92,19 @@ const LocalElectionForm = () => {
           ...prev,
           members: [...prev.members, { id: memberId, name: memberData.name }],
         }));
+        Swal.fire({
+          icon: "success",
+          title: "عضو مضاف",
+          text: "تم إضافة العضو بنجاح.",
+          confirmButtonText: "موافق",
+        });
       } catch (err) {
-        setError("لم يتم العثور على بيانات العضو");
+        Swal.fire({
+          icon: "error",
+          title: "خطأ",
+          text: "لم يتم العثور على بيانات العضو.",
+          confirmButtonText: "موافق",
+        });
       }
     }
   };
@@ -82,23 +112,50 @@ const LocalElectionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.members.length < 3) {
-      setError("يجب إضافة 3 أعضاء على الأقل");
+      Swal.fire({
+        icon: "warning",
+        title: "تحذير",
+        text: "يجب إضافة 3 أعضاء على الأقل.",
+        confirmButtonText: "موافق",
+      });
       return;
     }
-    try {
-      setLoading(true);
-      await axios.post(
-        "http://localhost:5000/api/requests/local-election-requests",
-        formData
-      );
-      alert(
-        "تم تقديم الطلب بنجاح. سنتواصل مع جميع الأشخاص المعنيين خلال 48 ساعة"
-      );
-      navigate("/");
-    } catch (err) {
-      setError("حدث خطأ أثناء تقديم الطلب");
-    } finally {
-      setLoading(false);
+
+    // Show confirmation dialog
+    const result = await Swal.fire({
+      title: "تأكيد",
+      text: "هل أنت متأكد أنك تريد تقديم الطلب؟",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "نعم، تأكيد",
+      cancelButtonText: "إلغاء",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        setLoading(true);
+        await axios.post(
+          "http://localhost:5000/api/requests/local-election-requests",
+          formData
+        );
+        Swal.fire({
+          icon: "success",
+          title: "تم تقديم الطلب",
+          text: "تم تقديم الطلب بنجاح. سنتواصل مع جميع الأشخاص المعنيين خلال 48 ساعة.",
+          confirmButtonText: "موافق",
+        }).then(() => {
+          navigate("/");
+        });
+      } catch (err) {
+        Swal.fire({
+          icon: "error",
+          title: "خطأ",
+          text: "حدث خطأ أثناء تقديم الطلب.",
+          confirmButtonText: "موافق",
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -113,7 +170,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="national_id"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               الرقم الوطني
             </label>
@@ -127,12 +184,12 @@ const LocalElectionForm = () => {
           </div>
 
           {loading && (
-            <div className="text-center text-blue-500">جاري التحميل...</div>
+            <div className="text-center text-blue-600">جاري التحميل...</div>
           )}
 
           {error && (
             <div
-              className="bg-red-100 border border-red-400 text-red-600 px-4 py-3 rounded-lg relative"
+              className="bg-red-100 border border-red-300 text-red-600 px-4 py-3 rounded-lg relative"
               role="alert"
             >
               {error}
@@ -142,7 +199,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="name"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               الاسم
             </label>
@@ -157,7 +214,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="city"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               المدينة
             </label>
@@ -172,7 +229,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="circle"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               الدائرة
             </label>
@@ -187,7 +244,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               البريد الإلكتروني
             </label>
@@ -202,7 +259,7 @@ const LocalElectionForm = () => {
           <div>
             <label
               htmlFor="local_list_name"
-              className="block text-gray-600 text-lg font-semibold mb-2"
+              className="block text-gray-700 text-lg font-semibold mb-2"
             >
               اسم القائمة المحلية
             </label>
@@ -221,7 +278,7 @@ const LocalElectionForm = () => {
           </div>
 
           <div>
-            <label className="block text-gray-600 text-lg font-semibold mb-2">
+            <label className="block text-gray-700 text-lg font-semibold mb-2">
               الأعضاء
             </label>
             {formData.members.map((member, index) => (
