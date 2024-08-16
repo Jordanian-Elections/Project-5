@@ -9,18 +9,12 @@ import Login from "./components/Login/Login";
 import PartyListsPage from "./components/PartyListsPage/PartyListsPage";
 import LocalLists from "./components/LocalLists/LocalLists";
 import ElectoralDistricts from "./components/ElectoralDistricts/ElectoralDistricts";
-<<<<<<< HEAD
-import ElectionRequests from "./components/Elections Requests/ElectionsRequests";
 import LocalElectionForm from "./components/Elections Requests/LocalElectionForm";
 import PartyElectionForm from "./components/Elections Requests/PartyElectionForm";
-=======
 import ElectionRequests from "./components/Elections Requests/electionsRequests";
 import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
-
-
->>>>>>> b0d4d37621f748964ab1359de1a02463db51d1f3
 
 const App = () => {
   return (
@@ -36,21 +30,15 @@ const App = () => {
         <Route path="/local-lists" element={<LocalLists />} />
         <Route path="/party-lists" element={<PartyListsPage />} />
         <Route path="/circle" element={<ElectoralDistricts />} />
-<<<<<<< HEAD
 
         {/* Routing for Election Forms */}
         <Route path="/requests" element={<ElectionRequests />} />
         <Route path="/local-form" element={<LocalElectionForm />} />
         <Route path="/party-form" element={<PartyElectionForm />} />
-=======
         <Route path="/party-lists" element={<PartyListsPage />} />
         <Route path="/PaymentComponent" element={<PaymentComponent />} />
-       <Route path="/VotingApp" element={<VotingApp />} />
-       <Route path="/VotePage" element={<VotePage />} />
-
-
-      
->>>>>>> b0d4d37621f748964ab1359de1a02463db51d1f3
+        <Route path="/VotingApp" element={<VotingApp />} />
+        <Route path="/VotePage" element={<VotePage />} />
       </Routes>
     </Router>
   );

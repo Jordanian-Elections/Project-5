@@ -1,7 +1,7 @@
 const knex = require("../knex-config"); // Import your knex instance
-const contact_request = require("../migrations/contact_reques");
+const contact_request = require("../migrations/20240815190812_contact_request");
 const users = require("../migrations/20240814133623_users");
-const LocalElectionRequest = require("../migrations/LocalElectionRequest");
+const LocalElectionRequest = require("../migrations/20240815190736_local_election_requests");
 
 exports.contactRequest = async (req, res) => {
   // id is a FK from users table
