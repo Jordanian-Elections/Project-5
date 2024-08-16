@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
-import axios from "axios"; // Make sure to install axios: npm install axios
+import axios from "axios";
+import Swal from "sweetalert2"; // Make sure to install SweetAlert2: npm install sweetalert2
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -12,7 +13,6 @@ const ContactUs = () => {
     message: "",
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -27,17 +27,44 @@ const ContactUs = () => {
     e.preventDefault();
     setError("");
 
-    try {
-      // Replace '/api/contact' with your actual API endpoint
-      const response = await axios.post(
-        "http://localhost:1000/api/requests/contact",
-        formData
-      );
-      console.log("Form data submitted:", response.data);
-      setIsSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setError("حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.");
+    const result = await Swal.fire({
+      title: "تأكيد",
+      text: "هل أنت متأكد أنك تريد إرسال هذه الرسالة؟",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "نعم، أرسل",
+      cancelButtonText: "إلغاء",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        const response = await axios.post(
+          "http://localhost:1000/api/requests/contact",
+          formData
+        );
+        console.log("Form data submitted:", response.data);
+        Swal.fire({
+          title: "تم تقديم الطلب بنجاح",
+          text: "سنتواصل معك في أقرب وقت ممكن.",
+          icon: "success",
+          confirmButtonText: "موافق",
+        });
+        // Clear form data after submission
+        setFormData({
+          name: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        Swal.fire({
+          title: "خطأ",
+          text: "حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.",
+          icon: "error",
+          confirmButtonText: "موافق",
+        });
+      }
     }
   };
 
@@ -80,103 +107,90 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {isSubmitted ? (
-            <div
-              className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-center"
-              role="alert"
-            >
-              <strong className="font-bold">شكراً لتواصلك معنا!</strong>
-              <p className="block sm:inline">
-                {" "}
-                سنقوم بالرد عليك في أقرب وقت ممكن.
-              </p>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-3xl mx-auto"
+          >
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="name"
+              >
+                الاسم الكامل
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="أدخل اسمك الكامل"
+              />
             </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-3xl mx-auto"
-            >
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="name"
-                >
-                  الاسم الكامل
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="name"
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="أدخل اسمك الكامل"
-                />
-              </div>
 
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="phone"
-                >
-                  رقم الهاتف
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  placeholder="أدخل رقم هاتفك"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="subject"
-                >
-                  الموضوع
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="subject"
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="أدخل موضوع رسالتك"
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="message"
-                >
-                  الرسالة
-                </label>
-                <textarea
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="اكتب رسالتك هنا"
-                />
-              </div>
-              <div className="flex items-center justify-center">
-                <button
-                  className="bg-[#01332A] hover:bg-[#024d3f] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
-                >
-                  إرسال الرسالة
-                </button>
-              </div>
-            </form>
-          )}
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="phone"
+              >
+                رقم الهاتف
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                placeholder="أدخل رقم هاتفك"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="subject"
+              >
+                الموضوع
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="subject"
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="أدخل موضوع رسالتك"
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="message"
+              >
+                الرسالة
+              </label>
+              <textarea
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="اكتب رسالتك هنا"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <button
+                className="bg-[#01332A] hover:bg-[#024d3f] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                إرسال الرسالة
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <Footer />
