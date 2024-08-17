@@ -1,6 +1,5 @@
 exports.up = function (knex) {
   return knex.schema.createTable("users", function (table) {
-    table.increments("id"); // Primary key
     table.integer("national_id").notNullable().unique().primary(); // National ID as primary key (INTEGER)
     table.string("email").notNullable().unique(); // Email field, must be unique
     table.string("name").notNullable(); // Name field
