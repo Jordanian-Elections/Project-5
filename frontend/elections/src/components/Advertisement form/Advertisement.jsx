@@ -57,7 +57,7 @@ const AdsSection = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/ads', formData, {
+      const response = await axios.post('http://localhost:5000/api/ads', formData, {
         headers: {
           'Content-Type': 'application/json',
         }

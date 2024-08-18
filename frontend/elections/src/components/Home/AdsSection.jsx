@@ -16,7 +16,7 @@ const AdsSection = () => {
     const fetchAds = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:4000/api/ads');
+        const response = await fetch('http://localhost:5000/api/ads');
         const data = await response.json();
         console.log('Fetched ads:', data); // Log fetched data
         setAds(data);
@@ -46,7 +46,7 @@ const AdsSection = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/api/ads', {
+      const response = await fetch('http://localhost:5000/api/ads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const AdsSection = () => {
 
       // Refetch ads to include the new one
       setLoading(true);
-      const updatedAds = await fetch('http://localhost:4000/api/ads').then(res => res.json());
+      const updatedAds = await fetch('http://localhost:5000/api/ads').then(res => res.json());
       setAds(updatedAds);
       setLoading(false);
 

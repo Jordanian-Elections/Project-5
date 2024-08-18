@@ -57,7 +57,7 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
-////////////////////////
+////////////////////////work//////////////////
 
 const express = require("express");
 const cors = require("cors");
@@ -73,6 +73,7 @@ const requestsRoutes = require("./routes/requestsRoutes");
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
 const adsRoutes = require('./routes/adsRoutes');
+const resultRouter = require('./routes/resulRouter')
 
 
 const app = express();
@@ -98,6 +99,8 @@ app.use('/api', adsRoutes);
 //routes tasneem
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
+app.use('/', resultRouter);
+
 
 // striiiiiiiiiiiiiiiiiiip
 
@@ -140,7 +143,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
