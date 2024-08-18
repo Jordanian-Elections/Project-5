@@ -15,6 +15,7 @@ import ElectionRequests from "./components/Elections Requests/electionsRequests"
 import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
+import RequestAdForm from "./components/Advertisement form/Advertisement";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/contact" element={<ContactUS />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignIn />} />
+        <Route path="/request-ad" element={<RequestAdForm />} />  {/* مسار صفحة الفورم */}
 
         <Route path="/local-lists" element={<LocalLists />} />
         <Route path="/party-lists" element={<PartyListsPage />} />
@@ -36,7 +38,9 @@ const App = () => {
         <Route path="/local-form" element={<LocalElectionForm />} />
         <Route path="/party-form" element={<PartyElectionForm />} />
         <Route path="/party-lists" element={<PartyListsPage />} />
-        <Route path="/PaymentComponent" element={<PaymentComponent />} />
+        {/* <Route path="/PaymentComponent" element={<PaymentComponent />} /> */}
+        <Route path="/payment" element={<PaymentComponent />} />
+
         <Route path="/VotingApp" element={<VotingApp />} />
         <Route path="/VotePage" element={<VotePage />} />
       </Routes>
