@@ -17,7 +17,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100017,
           party_votes: 0,
         },
         {
@@ -32,7 +31,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100018,
         },
         {
           name: "سامية أحمد",
@@ -46,7 +44,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100019,
         },
         {
           name: "خالد محمد",
@@ -60,7 +57,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100020,
         },
         {
           name: "ماروى نبيل",
@@ -74,7 +70,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100021,
         },
         {
           name: "طارق علي",
@@ -88,7 +83,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100022,
         },
         {
           name: "ليلى سعيد",
@@ -102,7 +96,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100023,
         },
         {
           name: "محمد حسين",
@@ -116,7 +109,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100024,
         },
         {
           name: "نوال خالد",
@@ -130,7 +122,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100025,
         },
         {
           name: "محمد ناصر",
@@ -144,7 +135,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100026,
         },
         {
           name: "رها عبد الله",
@@ -158,7 +148,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100027,
         },
         {
           name: "خليل أحمد",
@@ -172,7 +161,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100028,
         },
         {
           name: "أحمد صادق",
@@ -186,7 +174,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100029,
         },
         {
           name: "نور أحمد",
@@ -200,7 +187,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100030,
         },
         {
           name: "فادي أحمد",
@@ -214,7 +200,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100031,
         },
         {
           name: "مريم جابر",
@@ -228,7 +213,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100032,
         },
         {
           name: "إبراهيم صالح",
@@ -242,7 +226,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100033,
           party_votes: 0,
         },
         {
@@ -257,7 +240,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100034,
           party_votes: 0,
         },
         {
@@ -272,7 +254,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100035,
         },
         {
           name: "فرح نبيل",
@@ -286,7 +267,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100036,
         },
         {
           name: "حسن علي",
@@ -300,7 +280,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "كوتا",
           isActivate: true,
-          candidate_national_id: 100037,
         },
         {
           name: "هالة عبد الله",
@@ -314,7 +293,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "مسلم",
           isActivate: true,
-          candidate_national_id: 100038,
         },
         {
           name: "سامي ناصر",
@@ -328,7 +306,6 @@ exports.seed = function (knex) {
           gender: "male",
           type: "مسيحي",
           isActivate: true,
-          candidate_national_id: 100039,
         },
         {
           name: "ندى زكريا",
@@ -342,7 +319,6 @@ exports.seed = function (knex) {
           gender: "female",
           type: "شيشاني",
           isActivate: true,
-          candidate_national_id: 100040,
         },
       ]);
     });
