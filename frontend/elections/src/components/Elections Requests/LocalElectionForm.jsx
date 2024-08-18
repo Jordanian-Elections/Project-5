@@ -30,29 +30,92 @@ const LocalElectionForm = () => {
   //   loadCitiesAndCircles();
   // }, []);
 
+  // const handleNationalIdChange = async (e) => {
+  //   const { value } = e.target;
+  //   setFormData((prev) => ({ ...prev, national_id: value }));
+  //   if (value.length === 10) {
+  //     // Assuming Jordanian National ID is 10 digits
+  //     try {
+  //       setLoading(true);
+  //       const response = await axios.get(
+  //         `http://localhost:4000/api/requests/nationalId/${value}`
+  //       );
+  //       const userData = response.data;
+  //       setFormData((prev) => ({
+  //         ...prev,
+  //         name: userData.name,
+  //         city: userData.city,
+  //         circle: userData.circle,
+  //         email: userData.email,
+  //       }));
+  //     } catch (err) {
+  //       setError("لم يتم العثور على بيانات المستخدم");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  // };
+
+  // const handleNationalIdChange = async (e) => {
+  //   const { value } = e.target;
+  //   setFormData((prev) => ({ ...prev, national_id: value }));
+
+  //   if (value.length === 10 && /^[0-9]+$/.test(value)) {
+  //     // Assuming Jordanian National ID is 10 digits and numeric
+  //     try {
+  //       setLoading(true);
+  //       const response = await axios.get(
+  //         `http://localhost:4000/api/requests/nationalId/${value}`
+  //       );
+  //       const userData = response.data;
+
+  //       setFormData((prev) => ({
+  //         ...prev,
+  //         name: userData.name || '',
+  //         city: userData.city || '',
+  //         circle: userData.circle || '',
+  //         email: userData.email || '',
+  //       }));
+  //     } catch (err) {
+  //       setError("لم يتم العثور على بيانات المستخدم");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   } else if (value.length > 10) {
+  //     setError("رقم الهوية الوطنية يجب أن يتكون من 10 أرقام");
+  //   }
+  // };
+
   const handleNationalIdChange = async (e) => {
     const { value } = e.target;
     setFormData((prev) => ({ ...prev, national_id: value }));
-    if (value.length === 10) {
-      // Assuming Jordanian National ID is 10 digits
+
+    if (value.length === 10 && /^[0-9]+$/.test(value)) {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/api/requests/nationalId/${value}`
+          `http://localhost:4000/api/requests/nationalId/${value}`
         );
         const userData = response.data;
+        console.log("Fetched user data:", userData); // Debugging line
+
         setFormData((prev) => ({
           ...prev,
-          name: userData.name,
-          city: userData.city,
-          circle: userData.circle,
-          email: userData.email,
+          name: userData.name || "",
+          city: userData.city || "",
+          circle: userData.circle || "",
+          email: userData.email || "",
         }));
       } catch (err) {
+        console.error("Error fetching user data:", err); // Debugging line
         setError("لم يتم العثور على بيانات المستخدم");
       } finally {
         setLoading(false);
       }
+    } else if (value.length > 10) {
+      setError("رقم الهوية الوطنية يجب أن يتكون من 10 أرقام");
+    } else {
+      setError(""); // Clear error if ID length is invalid
     }
   };
 
@@ -85,7 +148,7 @@ const LocalElectionForm = () => {
     if (memberId) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/requests/nationalId/${memberId}`
+          `http://localhost:4000/api/requests/nationalId/${memberId}`
         );
         const memberData = response.data;
         setFormData((prev) => ({
@@ -135,7 +198,7 @@ const LocalElectionForm = () => {
       try {
         setLoading(true);
         await axios.post(
-          "http://localhost:5000/api/requests/local-election-requests",
+          "http://localhost:4000/api/requests/local-election-requests",
           formData
         );
         Swal.fire({
@@ -309,6 +372,7 @@ const LocalElectionForm = () => {
             {loading ? "جاري التقديم..." : "تقديم الطلب"}
           </button>
         </form>
+        <div></div>
       </div>
 
       <Footer />
