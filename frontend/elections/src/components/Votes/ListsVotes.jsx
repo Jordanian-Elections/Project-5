@@ -27,7 +27,7 @@ function ListVotes(){
     const fetchCandidates = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get('http://localhost:4000/api/voting/candidates-by-city');
+            const response = await axios.get('http://localhost:5000/api/voting/candidates-by-city');
             setCities(response.data);
             setIsLoading(false);
         } catch (error) {
@@ -65,7 +65,7 @@ function ListVotes(){
 
     const handleVote = async () => {
         try {
-            await axios.patch('http://localhost:4000/api/voting/votedcircle', {
+            await axios.patch('http://localhost:5000/api/voting/votedcircle', {
                 user: user,
                 candidate: {
                     candidate_national_ids: selectedCandidates.map(c => c.candidate_national_id),

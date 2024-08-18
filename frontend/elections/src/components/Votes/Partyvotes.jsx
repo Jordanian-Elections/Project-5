@@ -21,7 +21,7 @@ const VotePage = () => {
   const partiesPerPage = 6;
 
   useEffect(() => {
-    axios.get('http://localhost:4000/parties')
+    axios.get('http://localhost:5000/parties')
       .then(response => {
         setParties(response.data);
       })
@@ -40,7 +40,7 @@ const VotePage = () => {
     const isConfirmed = window.confirm(`هل أنت متأكد من التصويت لحزب "${selectedParty}"؟`);
 
     if (isConfirmed) {
-      axios.patch('http://localhost:4000/votedparty', {
+      axios.patch('http://localhost:5000/votedparty', {
         user,
         candidate: { party: selectedParty }
       })
