@@ -135,7 +135,7 @@ router.get("/users" , async(req,res)=>{
 router.patch('/votedcircle', async (req, res) => {
     const { user, candidate } = req.body;
     const { national_id, circle: userCircle, city: userCity } = user;
-    const { candidate_national_ids, circle_list, circle: candidateCircle, city: candidateCity } = candidate;
+    const { candidate_national_ids, circle_list: circle_list, circle: candidateCircle, city: candidateCity } = candidate;
   
    
       const userRecord = await knex('users').where({ national_id }).first();
@@ -176,11 +176,8 @@ router.patch('/votedcircle', async (req, res) => {
           .where({ circle_list, circle: candidateCircle, city: candidateCity })
           .first();
   
-        if (listExists) {
           await knex('candidates').where({ circle_list, circle: candidateCircle, city: candidateCity }).increment('list_votes', 1);
-        } else {
-          return res.status(404).json({ error: 'List not found in the provided circle or city' });
-        }
+       
       } else {
         // Step 5: Handle voting for a whitepaper if no candidates or list is provided
         await knex('whitepaper').where({ id: 1 }).increment('locallist', 1);

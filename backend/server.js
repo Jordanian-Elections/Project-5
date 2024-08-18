@@ -73,6 +73,7 @@ const requestsRoutes = require("./routes/requestsRoutes");
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
 const adsRoutes = require('./routes/adsRoutes');
+const resultRouter = require('./routes/resulRouter')
 
 
 const app = express();
@@ -98,6 +99,8 @@ app.use('/api', adsRoutes);
 //routes tasneem
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
+app.use('/', resultRouter);
+
 
 // striiiiiiiiiiiiiiiiiiip
 
