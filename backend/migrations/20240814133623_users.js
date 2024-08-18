@@ -1,6 +1,5 @@
 exports.up = function(knex) {
   return knex.schema.createTable('users', function(table) {
-    table.increments('id'); // Primary key
     table.integer('national_id').notNullable().unique().primary(); // National ID as primary key (INTEGER)
     table.string('email').notNullable().unique(); // Email field, must be unique
     table.string('name').notNullable(); // Name field
@@ -12,8 +11,8 @@ exports.up = function(knex) {
     table.enu('role', ['voter', 'candidate']).notNullable(); // Enum for role
     table.boolean('isApproved').defaultTo(false); // Boolean for admin approval
     table.integer('Whitepaper').nullable(); // Integer field for Whitepaper
-    table.enu('type', ['مسلم', 'كوتا', 'مسيحي', 'شيشاني']); // نوع الترشيح
     table.enu('gender', ['male', 'female']); // نوع الجنس
+    table.enu('type', ['مسلم', 'كوتا', 'مسيحي', 'شيشاني']); // نوع الترشيح
     table.boolean('isActivate').defaultTo(true); // Boolean for admin approval
     table.string('otp').nullable(); // OTP field
 

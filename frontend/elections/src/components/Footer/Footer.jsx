@@ -29,7 +29,7 @@ const FooterLinks = [
 
 export const Footer = () => {
   return (
-    <div className="text-white bg-[rgb(229,79,83)]">
+    <div className="text-black bg-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 pb-10 pt-5 text-right">
           {/* Company Details */}

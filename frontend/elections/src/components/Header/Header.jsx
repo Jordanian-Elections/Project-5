@@ -63,17 +63,17 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[rgb(229,79,83)] p-4 text-white shadow-md">
+    <header className="bg-white p-4 text-black shadow-md">
       <nav className="flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="h-20 w-20 rounded-full" />
-          <span className="mr-2 text-xl font-bold text-white">VoteJO</span>
+          <span className="mr-2 text-xl font-bold text-black">VoteJO</span>
         </div>
         <div className="flex space-x-14">
           <Link to="/" className="hover:text-gray-300 ml-12">
             الرئيسية
           </Link>
-          <Link to="/circle" className="hover:text-gray-300">
+          <Link to="/circle" className="hover:text-black-300">
             الدوائر الإنتخابية
           </Link>
           <Link to="/requests" className="hover:text-gray-300">
