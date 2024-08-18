@@ -184,7 +184,6 @@ const LocalElectionForm = () => {
       return;
     }
 
-    // Show confirmation dialog
     const result = await Swal.fire({
       title: "تأكيد",
       text: "هل أنت متأكد أنك تريد تقديم الطلب؟",
@@ -197,10 +196,17 @@ const LocalElectionForm = () => {
     if (result.isConfirmed) {
       try {
         setLoading(true);
+        const requestData = {
+          national_id: formData.national_id,
+          local_list_name: formData.local_list_name,
+          members: formData.members.map((member) => ({ name: member.name })),
+        };
+
         await axios.post(
           "http://localhost:4000/api/requests/local-election-requests",
-          formData
+          requestData
         );
+
         Swal.fire({
           icon: "success",
           title: "تم تقديم الطلب",
@@ -210,6 +216,7 @@ const LocalElectionForm = () => {
           navigate("/");
         });
       } catch (err) {
+        console.error("Error submitting form:", err);
         Swal.fire({
           icon: "error",
           title: "خطأ",
@@ -221,7 +228,6 @@ const LocalElectionForm = () => {
       }
     }
   };
-
   return (
     <>
       <Header />

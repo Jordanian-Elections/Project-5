@@ -1,6 +1,6 @@
 const knex = require("../knex-config"); // Import your knex instance
 const contact_request = require("../migrations/20240815190812_contact_request");
-const users = require("../migrations/20240814133623_users");
+const users = require("../migrations/20240818133618_users");
 const LocalElectionRequest = require("../migrations/20240815190736_local_election_requests");
 const PartyElectionRequest = require("../migrations/20240816161748_party_election_requests"); //do not forget to change
 
@@ -69,31 +69,59 @@ exports.getUserByNationalId = async (req, res) => {
   }
 };
 
+console.log("post error");
+
+// Handle the creation of a local election request
 exports.createLocalElectionRequest = async (req, res) => {
   try {
+    console.log("Received request body:", req.body);
+
+    const tableInfo = await knex("local_election_requests").columnInfo();
+    console.log("Table schema:", tableInfo);
+
     const { national_id, local_list_name, members } = req.body;
 
-    // Insert into local_election_requests
+    console.log("Extracted data:", { national_id, local_list_name, members });
+
+    if (
+      !national_id ||
+      !local_list_name ||
+      !Array.isArray(members) ||
+      members.length === 0
+    ) {
+      console.log("Invalid input data");
+      return res.status(400).json({
+        message: "Invalid input data",
+      });
+    }
+
+    console.log("Attempting to insert into local_election_requests");
     const [newRequestId] = await knex("local_election_requests")
       .insert({
-        national_id,
-        local_list_name,
+        national_id: national_id,
+        local_list_name: local_list_name,
       })
-      .returning("id"); // Get the ID of the newly inserted row
+      .returning("id");
 
-    // Insert each member into the members table
+    console.log("Inserted request, ID:", newRequestId);
+
     const memberInserts = members.map((member) => ({
-      request_id: newRequestId,
-      member_name: member,
+      request_id: newRequestId.id,
+      member_name: member.name,
     }));
 
+    console.log("Attempting to insert members:", memberInserts);
+    console.log(newRequestId.id);
     await knex("members").insert(memberInserts);
+
+    console.log("Members inserted successfully");
 
     res.status(201).json({
       message: "Local election request created successfully",
-      id: newRequestId,
+      id: newRequestId.id,
     });
   } catch (error) {
+    console.error("Error creating local election request:", error);
     res.status(500).json({
       message: "Error creating local election request",
       error: error.message,
