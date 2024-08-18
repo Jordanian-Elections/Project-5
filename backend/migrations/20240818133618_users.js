@@ -1,6 +1,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable("users", function (table) {
-    table.integer("national_id").notNullable().unique().primary(); // National ID as primary key (INTEGER)
+    table.string("national_id").notNullable().unique().primary(); // National ID as primary key (INTEGER)
     table.string("email").notNullable().unique(); // Email field, must be unique
     table.string("name").notNullable(); // Name field
     table.string("city").notNullable(); // City field
@@ -23,7 +23,6 @@ exports.up = function (knex) {
     // .onDelete('CASCADE'); // Delete user if electoral district is deleted
 
     // Add timestamps
-    table.timestamps(true, true);
   });
 };
 
