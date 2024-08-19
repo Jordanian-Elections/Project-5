@@ -22,6 +22,9 @@ function VotingApp() {
   function handleClick() {
     navigate("/ListVotes");  // Use navigate to go to the new page
   }
+  function handleClickparty() {
+    navigate("/party-lists");  // Use navigate to go to the new page
+  }
 
   return (
     <>
@@ -193,7 +196,7 @@ function VotingApp() {
         </div>
         <div className="pt-5 text-base font-semibold leading-7">
           <p>
-            <a href="#" className="text-[rgba(45,126,88,0.81)] transition-all duration-300 group-hover:text-white">
+            <a href="#" className="text-[rgba(45,126,88,0.81)] transition-all duration-300 group-hover:text-white" onClick={handleClickparty}>
               الاتجاه الى صفحة التصويت للقوائم الحزبية مباشرة &rarr;
             </a>
           </p>

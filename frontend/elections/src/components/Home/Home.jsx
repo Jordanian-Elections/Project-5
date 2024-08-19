@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import HeroSection from "./Hero";
 import WelcomeMessage from "./WelcomeMessage";
 import CountdownTimer from "./CountdownTimer";
-import ElectoralDistricts from "./ElectoralDistricts";
+// import ElectoralDistricts from "./ElectoralDistricts";
 import ImportantDates from "./ImportantDates";
 import AdsSection from "./AdsSection";
 import VoterCounts from "./VoterCounts";
@@ -13,6 +13,7 @@ import PartnersSlider from "./PartnersSlider";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import FAQSection from "./FAQSection";
+import ChatBox from "../ChatBox/ChatBox";
 // import Carousel from "../Carusor";
 
 const HomePage = () => {
@@ -87,9 +88,9 @@ const HomePage = () => {
             <CountdownTimer targetDate="2024-09-10T00:00:00" />
           </div>
         </section>
-        <ElectoralDistricts />
+        {/* <ElectoralDistricts /> */}
         <ImportantDates importantDates={importantDates} />
-        <AdsSection ads={ads} />
+        {/* <AdsSection ads={ads} /> */}
         <VoterCounts voterCount={voterCount} />
         <NewsUpdates newsUpdates={newsUpdates} />
         <PartnersSlider partners={partners} />
@@ -98,6 +99,7 @@ const HomePage = () => {
       {/* <Carousel/> */}
     </div>
     <Footer/>
+    <ChatBox/>
     </>
     
   );

@@ -91,6 +91,10 @@ const Header = () => {
           <Link to="/VotePage" className="hover:text-gray-300">
             تصويت 
           </Link>
+          <Link to="/debates" className="hover:text-gray-300">
+            قائمة المناظرات  
+          </Link>
+         
           
         </div>
         <div>

@@ -2,7 +2,7 @@
 import React from "react";
 import v from "../../assets/videoplayback.mp4";  
 import bgImage from "../../assets/download.jpg"; // Import the background image
-
+import {Link} from "react-router-dom"
 const HeroSection = () => (
   <section
     className="relative h-screen flex items-center justify-center text-center text-white"
@@ -27,12 +27,11 @@ const HeroSection = () => (
           className="w-[600px] h-[400px]"
         ></iframe>
       </div>
-      <a
-        href="/register"
-        className="bg-[#d46666] hover:bg-jordanian-red-dark text-white py-2 px-4 rounded-full font-bold transition duration-300"
-      >
-        صوّت الآن
-      </a>
+      <Link to="/create-debate">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              طلب مناظرة
+            </button>
+          </Link>
     </div>
   </section>
 );
