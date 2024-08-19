@@ -57,6 +57,7 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
+
 ////////////////////////work//////////////////
 
 // const express = require("express");
@@ -167,8 +168,12 @@ const routerVotingparty = require("./routes/routingPartylist");
 const adsRoutes = require('./routes/adsRoutes');
 const resultRouter = require('./routes/resulRouter');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
+
 const chatRoutes = require('./routes/chatRouter')
 
+
+
+const payments=require('./routes/paymentRoutes')
 
 const app = express();
 
@@ -190,7 +195,12 @@ app.use("/", routerVotingparty);
 app.use('/', resultRouter);
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
+
 app.use('/api/chat', chatRoutes);
+
+app.use('/payments', paymentRoutes);
+
+
 const Stripe = require("stripe");
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
