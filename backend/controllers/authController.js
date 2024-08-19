@@ -69,7 +69,7 @@ exports.verify = async (req, res) => {
   try {
     const { national_id, otp } = req.body;
     const token = await authService.handleVerify(national_id, otp);
-    res.json({ token });
+    res.status(200).json({ token, national_id });
   } catch (error) {
     console.error('Verification failed:', error);
     res.status(500).json({ message: error.message });

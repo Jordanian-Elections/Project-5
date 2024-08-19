@@ -115,9 +115,13 @@ exports.authenticateUser = async (req, res) => {
     const token = jwt.sign({ userId: user.national_id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
     // إرسال التوكن
-    // res.status(200).json({ token });
+// <<<<<<< HEAD
+//     // res.status(200).json({ token });
+//     res.status(200).json({ token, national_id: nationalID });
+//     req.json({token})
+
+
     res.status(200).json({ token, national_id: nationalID });
-    req.json({token})
 
   } catch (error) {
     console.error('Error during authentication:', error);
