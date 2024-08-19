@@ -97,17 +97,25 @@ const App = () => {
         <Route path="/local-lists" element={<PrivateRoute element={<LocalLists />} />} />
         <Route path="/party-lists" element={<PrivateRoute element={<PartyListsPage />} />} />
         <Route path="/circle" element={<PrivateRoute element={<ElectoralDistricts />} />} />
-        <Route path="/requests" element={<PrivateRoute element={<ElectionRequests />} />} />
+        {/* <Route path="/requests" element={<PrivateRoute element={<ElectionRequests />} />} />
         <Route path="/local-form" element={<PrivateRoute element={<LocalElectionForm />} />} />
-        <Route path="/party-form" element={<PrivateRoute element={<PartyElectionForm />} />} />
-        <Route path="/PaymentComponent" element={<PrivateRoute element={<PaymentComponent />} />} />
+        <Route path="/party-form" element={<PrivateRoute element={<PartyElectionForm />} />} /> */}
+        {/* <Route path="/PaymentComponent" element={<PrivateRoute element={<PaymentComponent />} />} /> */}
+        <Route path="/PaymentComponent" element={<PaymentComponent />} />
         <Route path="/VotingApp" element={<PrivateRoute element={<VotingApp />} />} />
         <Route path="/VotePage" element={<PrivateRoute element={<VotePage />} />} />
         <Route path="/ListVotes" element={<PrivateRoute element={<ListVotes />} />} />
-        <Route path="/create-debate" element={<PrivateRoute element={<CreateDebate />} />} />
+        {/* <Route path="/create-debate" element={<PrivateRoute element={<CreateDebate />} />} /> */}
         <Route path="/debates" element={<PrivateRoute element={<DebatesList />} />} />
         <Route path="/Debate-screen" element={<PrivateRoute element={<Debate_screen />} />} />
         <Route path="/Debate-Room/:roomId" element={<PrivateRoute element={<Debate_Room />} />} />
+        {/* <Route path="/ads" element={<PrivateRoute element={<RequestAdForm />} />} /> */}
+        <Route path="/ads" element={<RequestAdForm />} />
+        <Route path="/requests" element={<ElectionRequests />} />
+        <Route path="/local-form" element={<LocalElectionForm />} />
+        <Route path="/party-form" element={<PartyElectionForm />} />
+        <Route path="/create-debate" element={<CreateDebate />} />
+
 
       </Routes>
     </Router>
