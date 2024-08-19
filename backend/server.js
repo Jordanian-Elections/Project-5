@@ -57,7 +57,7 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
-////////////////////////
+////////////////////////work//////////////////
 
 const express = require("express");
 const cors = require("cors");
@@ -72,8 +72,8 @@ const userAuthRoutes = require("./routes/userAuthRoutes"); // Adjust path as nec
 const requestsRoutes = require("./routes/requestsRoutes");
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
-const adsRoutes = require('./routes/adsRoutes');
-
+const adsRoutes = require("./routes/adsRoutes");
+const resultRouter = require("./routes/resulRouter");
 
 const app = express();
 
@@ -92,12 +92,12 @@ app.use("/api/electoral-districts", electoralDistrictsRoute); // Adjusted endpoi
 app.use("/api/userAuth", userAuthRoutes); // Ensure this path matches your routes
 app.use("/api/requests", requestsRoutes);
 
-app.use('/api', adsRoutes);
-
+app.use("/api", adsRoutes);
 
 //routes tasneem
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
+app.use("/", resultRouter);
 
 // striiiiiiiiiiiiiiiiiiip
 

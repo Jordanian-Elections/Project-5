@@ -16,6 +16,7 @@ import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
 import RequestAdForm from "./components/Advertisement form/Advertisement";
+import ListVotes from "./components/Votes/ListsVotes";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
 
         <Route path="/VotingApp" element={<VotingApp />} />
         <Route path="/VotePage" element={<VotePage />} />
+        <Route path="/ListVotes" element={<ListVotes />} />
       </Routes>
     </Router>
   );
