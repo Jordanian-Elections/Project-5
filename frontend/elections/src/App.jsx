@@ -74,6 +74,7 @@ import ElectionRequests from "./components/Elections Requests/electionsRequests"
 import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
+import RequestAdForm from "./components/Advertisement form/Advertisement";
 import ListVotes from "./components/Votes/ListsVotes";
 import CreateDebate from "./components/Debate/DebateRequestForm"
 import DebatesList from "./components/Debate/DebateList";
@@ -107,6 +108,7 @@ const App = () => {
         <Route path="/debates" element={<PrivateRoute element={<DebatesList />} />} />
         <Route path="/Debate-screen" element={<PrivateRoute element={<Debate_screen />} />} />
         <Route path="/Debate-Room/:roomId" element={<PrivateRoute element={<Debate_Room />} />} />
+
       </Routes>
     </Router>
   );

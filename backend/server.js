@@ -57,6 +57,7 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
+
 ////////////////////////work//////////////////
 
 // const express = require("express");
@@ -173,8 +174,7 @@ const resultPartyrouter = require('./routes/resultPartyrouter');
 // end tasneem
 const adsRoutes = require('./routes/adsRoutes');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
-
-
+const payments=require('./routes/paymentRoutes')
 const app = express();
 
 // Middleware
@@ -197,6 +197,8 @@ app.use('/', resultRouter);
 // end tasneem Routes
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
+app.use('/payments', paymentRoutes);
+
 
 const Stripe = require("stripe");
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
