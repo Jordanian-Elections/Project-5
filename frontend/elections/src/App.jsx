@@ -70,7 +70,7 @@ import LocalLists from "./components/LocalLists/LocalLists";
 import ElectoralDistricts from "./components/ElectoralDistricts/ElectoralDistricts";
 import LocalElectionForm from "./components/Elections Requests/LocalElectionForm";
 import PartyElectionForm from "./components/Elections Requests/PartyElectionForm";
-import ElectionRequests from "./components/Elections Requests/electionsRequests";
+import ElectionRequests from "./components/Elections Requests/ElectionsRequests";
 import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
