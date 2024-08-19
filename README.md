@@ -22,4 +22,13 @@
 7. Tailwind CSS
 8. knex.js
 
+## Important Links
+### Trello Link : [Trello](https://trello.com/b/C4yhlyzt/project-5)
+
+### Figma Link : [Figma](https://www.figma.com/design/PuOLhhAT8kcApSiYcR1RCm/Election-in-jordan?t=s36Eq7Xzm5mXHtq9-0)
+
+### Organaization Link : [Organaization](https://github.com/Jordanian-Elections/Project-5)
+
+### Dashboard Repo Link : [Dashboard](https://github.com/Jordanian-Elections/Dashboard)
+
 
