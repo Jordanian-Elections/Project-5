@@ -16,6 +16,10 @@ import PaymentComponent from "./components/PaymentComponent/Payment";
 import VotingApp from "./components/Votes/Localvotes";
 import VotePage from "./components/Votes/Partyvotes";
 import ListVotes from "./components/Votes/ListsVotes";
+import CreateDebate from "./components/Debate/DebateRequestForm"
+import DebatesList from "./components/Debate/DebateList";
+import Debate_screen from "./components/Debate/Debate_screen";
+import Debate_Room from "./components/Debate/Debate_Room";
 
 const App = () => {
   return (
@@ -41,6 +45,10 @@ const App = () => {
         <Route path="/VotingApp" element={<VotingApp />} />
         <Route path="/VotePage" element={<VotePage />} />
         <Route path="/ListVotes" element={<ListVotes />} />
+        <Route path="/create-debate" element={<CreateDebate />} />
+        <Route path="/debates" element={<DebatesList />} />
+        <Route path="/Debate-screen" element={<Debate_screen />} />
+        <Route path="/Debate-Room/:roomId" element={<Debate_Room />} />
       </Routes>
     </Router>
   );
