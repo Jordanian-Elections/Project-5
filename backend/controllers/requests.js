@@ -1,6 +1,6 @@
 const knex = require("../knex-config"); // Import your knex instance
 const contact_request = require("../migrations/20240815190812_contact_request");
-const users = require("../migrations/20240818133618_users");
+const users = require("../migrations/10240818133618_users");
 const LocalElectionRequest = require("../migrations/20240815190736_local_election_requests");
 const PartyElectionRequest = require("../migrations/20240816161748_party_election_requests"); //do not forget to change
 

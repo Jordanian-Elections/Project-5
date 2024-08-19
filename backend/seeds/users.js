@@ -1,7 +1,6 @@
-exports.seed = function (knex) {
+exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex("users")
-    .del()
+  return knex('users').del()
     .then(function () {
       // Inserts seed entries
       return knex("users").insert([
@@ -1760,7 +1759,7 @@ exports.seed = function (knex) {
           otp: null,
         },
         {
-          national_id: 2040000014,
+          national_id: 2050000014,
           email: "emaila4@gmail.com",
           name: "خالد عيسى سعيد الكيلاني",
           city: "عمان",
@@ -2491,7 +2490,7 @@ exports.seed = function (knex) {
           otp: null,
         },
         {
-          national_id: 2000400047,
+          national_id: 2000500047,
           email: "email437@gmail.com",
           name: "هدى مازن يوسف نصير",
           city: "عمان",
@@ -2814,7 +2813,7 @@ exports.seed = function (knex) {
           otp: null,
         },
         {
-          national_id: 2000400066,
+          national_id: 2000500066,
           email: "email665@gmail.com",
           name: "إيمان عبد الله محمود الربايعة",
           city: "عمان",

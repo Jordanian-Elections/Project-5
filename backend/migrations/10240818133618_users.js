@@ -16,6 +16,8 @@ exports.up = function (knex) {
     table.boolean("isActivate").defaultTo(true); // Boolean for admin approval
     table.string("otp").nullable(); // OTP field
 
+
+    
     // Add timestamps
     table.timestamps(true, true);
   });

@@ -163,12 +163,26 @@ const partyListsRoutes = require("./routes/partyListsRoutes");
 const electoralDistrictsRoute = require("./routes/electoralDistricts");
 const userAuthRoutes = require("./routes/userAuthRoutes");
 const requestsRoutes = require("./routes/requestsRoutes");
+// tasneem
+
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
-const adsRoutes = require('./routes/adsRoutes');
 const resultRouter = require('./routes/resulRouter');
+const resultPartyrouter = require('./routes/resultPartyrouter');
+
+
+// end tasneem
+const adsRoutes = require('./routes/adsRoutes.js');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
+
+// const chatRoutes = require('./routes/chatRouter')
+
+// areej
+const electionRoutes = require('./routes/statsRoutes.js');
+
+
 const payments=require('./routes/paymentRoutes')
+
 const app = express();
 
 // Middleware
@@ -183,46 +197,53 @@ app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute);
 app.use("/api/userAuth", userAuthRoutes);
 app.use("/api/requests", requestsRoutes);
-app.use('/api', adsRoutes);
+app.use('/api/ads', adsRoutes);
+// tasneem Routes
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
 app.use('/', resultRouter);
+// end tasneem Routes
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
-app.use('/payments', paymentRoutes);
+
+// app.use('/api/chat', chatRoutes);
+
+app.use('/payments', payments);
+app.use('/api/over', electionRoutes);
 
 
-const Stripe = require("stripe");
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-app.post("/create-payment-intent", async (req, res) => {
-  const { amount, currency } = req.body;
+// const Stripe = require("stripe");
+// const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-  if (!amount || isNaN(amount) || amount <= 0) {
-    return res.status(400).json({ error: "Invalid amount" });
-  }
+// app.post("/create-payment-intent", async (req, res) => {
+//   const { amount, currency } = req.body;
 
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency,
-    });
+//   if (!amount || isNaN(amount) || amount <= 0) {
+//     return res.status(400).json({ error: "Invalid amount" });
+//   }
 
-    await db("payments").insert({
-      stripe_payment_id: paymentIntent.id,
-      amount,
-      currency,
-      status: paymentIntent.status,
-    });
+//   try {
+//     const paymentIntent = await stripe.paymentIntents.create({
+//       amount,
+//       currency,
+//     });
 
-    res.json({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (error) {
-    console.error("Error creating payment intent:", error.message);
-    res.status(500).json({ error: error.message });
-  }
-});
+//     await db("payments").insert({
+//       stripe_payment_id: paymentIntent.id,
+//       amount,
+//       currency,
+//       status: paymentIntent.status,
+//     });
+
+//     res.json({
+//       clientSecret: paymentIntent.client_secret,
+//     });
+//   } catch (error) {
+//     console.error("Error creating payment intent:", error.message);
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -230,7 +251,9 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+//TasneemTest1234@

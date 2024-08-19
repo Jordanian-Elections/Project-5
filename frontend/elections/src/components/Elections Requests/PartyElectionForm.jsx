@@ -40,7 +40,7 @@ const PartyElectionForm = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:4000/api/requests/nationalId/${value}`
+          `http://localhost:5000/api/requests/nationalId/${value}`
         );
         const userData = response.data;
         if (userData.isApproved) {
@@ -87,7 +87,7 @@ const PartyElectionForm = () => {
       try {
         setLoading(true);
         await axios.post(
-          "http://localhost:4000/api/requests/party-election-requests",
+          "http://localhost:5000/api/requests/party-election-requests",
           formData
         );
         Swal.fire({
