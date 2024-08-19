@@ -89,7 +89,7 @@ const HomePage = () => {
         </section>
         {/* <ElectoralDistricts /> */}
         <ImportantDates importantDates={importantDates} />
-        <AdsSection ads={ads} />
+        {/* <AdsSection ads={ads} /> */}
         <VoterCounts voterCount={voterCount} />
         <NewsUpdates newsUpdates={newsUpdates} />
         <PartnersSlider partners={partners} />

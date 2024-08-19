@@ -168,8 +168,7 @@ const routerVotingparty = require("./routes/routingPartylist");
 const adsRoutes = require('./routes/adsRoutes');
 const resultRouter = require('./routes/resulRouter');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
-
-
+const payments=require('./routes/paymentRoutes')
 const app = express();
 
 // Middleware
@@ -190,6 +189,8 @@ app.use("/", routerVotingparty);
 app.use('/', resultRouter);
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
+app.use('/payments', paymentRoutes);
+
 
 const Stripe = require("stripe");
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
