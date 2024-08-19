@@ -48,7 +48,7 @@ const logoUrls = [
 const Logocar = () => {
     return (
         <section className='my-10' style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' }}>
-            <h2  className='text-4xl font-extrabold mb-8 text-center text-jordanian-red mb-20'>الجهات المعنيه والشركاء </h2>
+            <h2  className='text-4xl font-extrabold  text-center text-jordanian-red mb-20'>الجهات المعنيه والشركاء </h2>
             <div style={{ position: 'relative', width: '100%', height: '7rem' }}>
                 <div style={{
                     display: 'flex',

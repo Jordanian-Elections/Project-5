@@ -73,26 +73,23 @@ const Header = () => {
           <Link to="/" className="hover:text-gray-300 ml-12">
             الرئيسية
           </Link>
-          <Link to="/circle" className="hover:text-gray-300">
-            الدوائر الإنتخابية
-          </Link>
+         
           <Link to="/requests" className="hover:text-gray-300">
-            طلبات القوائم الإنتخابية
+            الطلبات و الخدمات
+          </Link>
+          
+          <Link to="/VotingApp" className="hover:text-gray-300">
+            الانتخابات
+          </Link>
+         
+          <Link to="/debates" className="hover:text-gray-300">
+            قائمة المناظرات  
           </Link>
           <Link to="/about" className="hover:text-gray-300">
             من نحن
           </Link>
           <Link to="/contact" className="hover:text-gray-300">
             تواصل معنا
-          </Link>
-          <Link to="/VotingApp" className="hover:text-gray-300">
-            تصويت محلي
-          </Link>
-          <Link to="/VotePage" className="hover:text-gray-300">
-            تصويت 
-          </Link>
-          <Link to="/debates" className="hover:text-gray-300">
-            قائمة المناظرات  
           </Link>
          
           
