@@ -505,6 +505,10 @@ if (!passwordRegex.test(password)) {
       const response = await axios.post('http://localhost:5000/api/userAuth/login', { name, email, password, nationalID });
       console.log('Response:', response);
       if (response && response.data) {
+// <<<<<<< HEAD
+//         const { token, nationalID } = response.data;
+// console.log(response.data.national_id);
+
         const { token } = response.data;
         sessionStorage.setItem('national_id', response.data.national_id);
         sessionStorage.setItem('token', response.data.token);

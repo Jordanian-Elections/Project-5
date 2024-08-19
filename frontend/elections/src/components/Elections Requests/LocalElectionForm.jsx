@@ -38,7 +38,7 @@ const LocalElectionForm = () => {
   //     try {
   //       setLoading(true);
   //       const response = await axios.get(
-  //         `http://localhost:4000/api/requests/nationalId/${value}`
+  //         `http://localhost:5000/api/requests/nationalId/${value}`
   //       );
   //       const userData = response.data;
   //       setFormData((prev) => ({
@@ -65,7 +65,7 @@ const LocalElectionForm = () => {
   //     try {
   //       setLoading(true);
   //       const response = await axios.get(
-  //         `http://localhost:4000/api/requests/nationalId/${value}`
+  //         `http://localhost:5000/api/requests/nationalId/${value}`
   //       );
   //       const userData = response.data;
 
@@ -94,7 +94,7 @@ const LocalElectionForm = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:4000/api/requests/nationalId/${value}`
+          `http://localhost:5000/api/requests/nationalId/${value}`
         );
         const userData = response.data;
         console.log("Fetched user data:", userData); // Debugging line
@@ -148,7 +148,7 @@ const LocalElectionForm = () => {
     if (memberId) {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/requests/nationalId/${memberId}`
+          `http://localhost:5000/api/requests/nationalId/${memberId}`
         );
         const memberData = response.data;
         setFormData((prev) => ({
@@ -203,7 +203,7 @@ const LocalElectionForm = () => {
         };
 
         await axios.post(
-          "http://localhost:4000/api/requests/local-election-requests",
+          "http://localhost:5000/api/requests/local-election-requests",
           requestData
         );
 
