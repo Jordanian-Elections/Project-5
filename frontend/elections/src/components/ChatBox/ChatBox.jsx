@@ -466,6 +466,13 @@ const ChatBox = () => {
     e.preventDefault();
 
     try {
+//       const response = await axios.post("http://localhost:5000/api/chat/add-message", {
+//         UserMessage: inputMessage,
+//       });
+//       setInputMessage("");
+//       fetchMessages();
+//     } catch (err) {
+//       console.log(err);
       const token = localStorage.getItem('token');
       if (!token) {
         alert("لم يتم العثور على توكن. يرجى تسجيل الدخول مرة أخرى.");
@@ -493,6 +500,7 @@ const ChatBox = () => {
 
   const fetchMessages = async () => {
     try {
+//       const response = await axios.get("http://localhost:5000/api/chat/getmessages");
       const token = localStorage.getItem('token');
       if (!token) {
         console.error('No token found in localStorage');
@@ -512,6 +520,7 @@ const ChatBox = () => {
       setMessages(sortedMessages);
     } catch (error) {
       console.error("Error fetching messages:", error);
+=
       if (error.response && error.response.status === 401) {
         alert("جلسة المستخدم منتهية. يرجى تسجيل الدخول مرة أخرى.");
       }
@@ -519,6 +528,8 @@ const ChatBox = () => {
   };
 
   useEffect(() => {
+ 
+//     fetchMessages();
     if (isOpen) {
       fetchMessages();
     }
@@ -610,7 +621,10 @@ const ChatBox = () => {
             />
             <button
               type="submit"
+//               className="bg-pink-500 text-white px-4 py-2 rounded-r-lg hover:bg-pink-600 transition-colors"
+
               className="bg-pink-500 text-white px-4 py-2 rounded-r-lg hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-colors"
+ 
             >
               إرسال
             </button>

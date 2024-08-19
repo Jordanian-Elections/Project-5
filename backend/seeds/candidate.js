@@ -5,6 +5,7 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('candidates').insert(
         // عمان اولى
+
         [
           {
             "name": "عائشة سالم",

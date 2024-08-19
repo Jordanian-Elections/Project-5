@@ -176,6 +176,13 @@ const resultPartyrouter = require('./routes/resultPartyrouter');
 
 
 // end tasneem
+
+// const chatRoutes = require('./routes/chatRouter')
+
+// areej
+const electionRoutes = require('./routes/statsRoutes.js');
+
+
 const adsRoutes = require('./routes/adsRoutes');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
 
@@ -197,7 +204,8 @@ app.use("/api/party-lists", partyListsRoutes);
 app.use("/api/electoral-districts", electoralDistrictsRoute);
 app.use("/api/userAuth", userAuthRoutes);
 app.use("/api/requests", requestsRoutes);
-app.use('/api', adsRoutes);
+app.use('/api/ads', adsRoutes);
+
 // tasneem Routes
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
@@ -205,6 +213,11 @@ app.use('/', resultRouter);
 // end tasneem Routes
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
+
+// app.use('/api/chat', chatRoutes);
+
+app.use('/api/over', electionRoutes);
+
 // app.use('/payments', paymentRoutes);
 
 
@@ -246,6 +259,7 @@ app.use('/payments', payments);
 //     res.status(500).json({ error: error.message });
 //   }
 // });
+
 
 
 // const Stripe = require("stripe");
