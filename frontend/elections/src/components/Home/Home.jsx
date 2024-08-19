@@ -13,6 +13,7 @@ import PartnersSlider from "./PartnersSlider";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import FAQSection from "./FAQSection";
+import ChatBox from "../ChatBox/ChatBox";
 // import Carousel from "../Carusor";
 
 const HomePage = () => {
@@ -98,6 +99,7 @@ const HomePage = () => {
       {/* <Carousel/> */}
     </div>
     <Footer/>
+    <ChatBox/>
     </>
     
   );

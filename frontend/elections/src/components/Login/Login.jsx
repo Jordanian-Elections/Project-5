@@ -506,7 +506,9 @@ if (!passwordRegex.test(password)) {
       const response = await axios.post('http://localhost:5000/api/userAuth/login', { name, email, password, nationalID });
       console.log('Response:', response);
       if (response && response.data) {
-        const { token } = response.data;
+        const { token, nationalID } = response.data;
+console.log(response.data.national_id);
+
         Cookies.set('token', token, { expires: 1 });
 
         Swal.fire({
