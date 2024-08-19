@@ -120,15 +120,15 @@ const LocalElectionForm = () => {
   };
 
   const handleAddMember = async () => {
-    // if (formData.members.length >= 3) {
-    //   Swal.fire({
-    //     icon: "warning",
-    //     title: "تحذير",
-    //     text: "يمكنك إضافة 3 أعضاء كحد أقصى",
-    //     confirmButtonText: "موافق",
-    //   });
-    //   return;
-    // }
+    if (formData.members.length >= 3) {
+      Swal.fire({
+        icon: "warning",
+        title: "تحذير",
+        text: "يمكنك إضافة 3 أعضاء كحد أقصى",
+        confirmButtonText: "موافق",
+      });
+      return;
+    }
 
     const { value: memberId } = await Swal.fire({
       title: "إضافة عضو",
@@ -146,14 +146,39 @@ const LocalElectionForm = () => {
     });
 
     if (memberId) {
+      // Check if the member is already in the list
+      if (formData.members.some((member) => member.id === memberId)) {
+        Swal.fire({
+          icon: "error",
+          title: "خطأ",
+          text: "هذا العضو موجود بالفعل في القائمة",
+          confirmButtonText: "موافق",
+        });
+        return;
+      }
+
       try {
         const response = await axios.get(
           `http://localhost:5000/api/requests/nationalId/${memberId}`
         );
         const memberData = response.data;
+
+        if (memberData.circle !== formData.circle) {
+          Swal.fire({
+            icon: "error",
+            title: "خطأ",
+            text: "يجب أن يكون العضو من نفس الدائرة",
+            confirmButtonText: "موافق",
+          });
+          return;
+        }
+
         setFormData((prev) => ({
           ...prev,
-          members: [...prev.members, { id: memberId, name: memberData.name }],
+          members: [
+            ...prev.members,
+            { id: memberId, name: memberData.name, circle: memberData.circle },
+          ],
         }));
         Swal.fire({
           icon: "success",
@@ -199,7 +224,11 @@ const LocalElectionForm = () => {
         const requestData = {
           national_id: formData.national_id,
           local_list_name: formData.local_list_name,
-          members: formData.members.map((member) => ({ name: member.name })),
+          circle: formData.circle,
+          members: formData.members.map((member) => ({
+            id: member.id,
+            name: member.name,
+          })),
         };
 
         await axios.post(

@@ -118,6 +118,9 @@ import FAQSection from "./FAQSection";
 import PartnersSlider from "./PartnersSlider"
 import AdsSection from "./AdsSection";
 // import VoterCounts from "./VoterCounts";
+import ChatBox from "../ChatBox/ChatBox";
+// import Carousel from "../Carusor";
+
 const HomePage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -252,6 +255,29 @@ const HomePage = () => {
       </div>
       <Footer />
       <ChatBox />
+//     <Header/>
+//     <div className="min-h-screen bg-jordanian-white text-jordanian-black" dir="rtl">
+//       <HeroSection />
+//       <main className="container mx-auto px-4 py-8">
+//         <WelcomeMessage isLoggedIn={isLoggedIn} username={username} />
+//         <section className="mb-12">
+//           <h2 className="text-3xl font-bold mb-6 text-center text-jordanian-red">العد التنازلي للانتخابات</h2>
+//           <div className="bg-jordanian-white p-6 rounded-lg shadow-lg flex justify-center">
+//             <CountdownTimer targetDate="2024-09-10T00:00:00" />
+//           </div>
+//         </section>
+//         {/* <ElectoralDistricts /> */}
+//         <ImportantDates importantDates={importantDates} />
+//         {/* <AdsSection ads={ads} /> */}
+//         <VoterCounts voterCount={voterCount} />
+//         <NewsUpdates newsUpdates={newsUpdates} />
+//         <PartnersSlider partners={partners} />
+//         <FAQSection />
+//       </main>
+//       {/* <Carousel/> */}
+//     </div>
+//     <Footer/>
+//     <ChatBox/>
     </>
   );
 };

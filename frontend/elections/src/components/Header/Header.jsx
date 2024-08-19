@@ -155,11 +155,37 @@ const Header = () => {
           ))}
         </div>
 
+
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+
+        <div className="flex space-x-14">
+          <Link to="/" className="hover:text-gray-300 ml-12">
+            الرئيسية
+          </Link>
+         
+          <Link to="/requests" className="hover:text-gray-300">
+            الطلبات و الخدمات
+          </Link>
+          
+          <Link to="/VotingApp" className="hover:text-gray-300">
+            الانتخابات
+          </Link>
+         
+          <Link to="/debates" className="hover:text-gray-300">
+            قائمة المناظرات  
+          </Link>
+          <Link to="/about" className="hover:text-gray-300">
+            من نحن
+          </Link>
+          <Link to="/contact" className="hover:text-gray-300">
+            تواصل معنا
+          </Link>
+         
+          
         </div>
 
         {/* Auth Button */}
