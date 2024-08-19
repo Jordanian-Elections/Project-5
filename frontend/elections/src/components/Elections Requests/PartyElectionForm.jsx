@@ -40,19 +40,10 @@ const PartyElectionForm = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:1000/api/requests/nationalId/${value}`
+          `http://localhost:4000/api/requests/nationalId/${value}`
         );
         const userData = response.data;
-        if (!userData.isApproved) {
-          setError("عذراً، أنت غير مؤهل لتقديم طلب انتخابات حزبية.");
-          setFormData((prev) => ({
-            ...prev,
-            name: "",
-            city: "",
-            circle: "",
-            email: "",
-          }));
-        } else {
+        if (userData.isApproved) {
           setFormData((prev) => ({
             ...prev,
             name: userData.name,
@@ -61,6 +52,15 @@ const PartyElectionForm = () => {
             email: userData.email,
           }));
           setError("");
+        } else {
+          setFormData((prev) => ({
+            ...prev,
+            name: "",
+            city: "",
+            circle: "",
+            email: "",
+          }));
+          setError("عذراً، أنت غير مؤهل لتقديم طلب انتخابات حزبية.");
         }
       } catch (err) {
         setError("لم يتم العثور على بيانات المستخدم");
@@ -87,7 +87,7 @@ const PartyElectionForm = () => {
       try {
         setLoading(true);
         await axios.post(
-          "http://localhost:1000/api/requests/party-election-requests",
+          "http://localhost:4000/api/requests/party-election-requests",
           formData
         );
         Swal.fire({

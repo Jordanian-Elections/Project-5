@@ -7,7 +7,8 @@ import Footer from "../Footer/Footer";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    contact_name: "",
+    contact_national_id: "",
     phone: "",
     subject: "",
     message: "",
@@ -39,7 +40,7 @@ const ContactUs = () => {
     if (result.isConfirmed) {
       try {
         const response = await axios.post(
-          "http://localhost:1000/api/requests/contact",
+          "http://localhost:4000/api/requests/contact",
           formData
         );
         console.log("Form data submitted:", response.data);
@@ -51,7 +52,8 @@ const ContactUs = () => {
         });
         // Clear form data after submission
         setFormData({
-          name: "",
+          contact_name: "",
+          contact_national_id: "",
           phone: "",
           subject: "",
           message: "",
@@ -114,19 +116,38 @@ const ContactUs = () => {
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="name"
+                htmlFor="contact_name"
               >
                 الاسم الكامل
               </label>
               <input
                 className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
+                id="contact_name"
                 type="text"
-                name="name"
-                value={formData.name}
+                name="contact_name"
+                value={formData.contact_name}
                 onChange={handleChange}
                 required
                 placeholder="أدخل اسمك الكامل"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="contact_national_id"
+              >
+                الرقم الوطني
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full h-14 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="contact_national_id"
+                type="text"
+                name="contact_national_id"
+                value={formData.contact_national_id}
+                onChange={handleChange}
+                required
+                placeholder="أدخل رقمك الوطني"
               />
             </div>
 
