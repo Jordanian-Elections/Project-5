@@ -14,7 +14,7 @@
     "@stripe/react-stripe-js": "^2.7.3",
     "@stripe/stripe-js": "^4.3.0",
     "@zegocloud/zego-uikit-prebuilt": "^2.7.0",
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "bcrypt": "^5.1.1",
     "framer-motion": "^11.3.28",
     "i": "^0.3.7",
