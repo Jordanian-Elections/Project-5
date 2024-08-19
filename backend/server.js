@@ -174,7 +174,13 @@ const resultPartyrouter = require('./routes/resultPartyrouter');
 // end tasneem
 const adsRoutes = require('./routes/adsRoutes');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
+
+const chatRoutes = require('./routes/chatRouter')
+
+
+
 const payments=require('./routes/paymentRoutes')
+
 const app = express();
 
 // Middleware
@@ -198,6 +204,44 @@ app.use('/', resultRouter);
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
 // app.use('/payments', paymentRoutes);
+
+
+app.use('/api/chat', chatRoutes);
+
+
+
+
+// const Stripe = require("stripe");
+// const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+
+// app.post("/create-payment-intent", async (req, res) => {
+//   const { amount, currency } = req.body;
+
+//   if (!amount || isNaN(amount) || amount <= 0) {
+//     return res.status(400).json({ error: "Invalid amount" });
+//   }
+
+//   try {
+//     const paymentIntent = await stripe.paymentIntents.create({
+//       amount,
+//       currency,
+//     });
+
+//     await db("payments").insert({
+//       stripe_payment_id: paymentIntent.id,
+//       amount,
+//       currency,
+//       status: paymentIntent.status,
+//     });
+
+//     res.json({
+//       clientSecret: paymentIntent.client_secret,
+//     });
+//   } catch (error) {
+//     console.error("Error creating payment intent:", error.message);
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 
 // const Stripe = require("stripe");
