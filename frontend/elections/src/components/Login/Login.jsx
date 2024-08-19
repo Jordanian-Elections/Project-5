@@ -434,7 +434,6 @@ function Login({ handleLogin }) {
   const [password, setPassword] = useState('');
   const [nationalID, setNationalID] = useState('');
   const [error, setError] = useState('');
-
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -507,6 +506,10 @@ if (!passwordRegex.test(password)) {
       console.log('Response:', response);
       if (response && response.data) {
         const { token } = response.data;
+        sessionStorage.setItem('national_id', response.data.national_id);
+        sessionStorage.setItem('token', response.data.token);
+
+        console.log(response.data.national_id);
         Cookies.set('token', token, { expires: 1 });
 
         Swal.fire({
