@@ -116,6 +116,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin, FaLocationArrow, FaEnvelope, FaPhone } from "react-icons/fa";
 import logo12 from "../../assets/logo1.png"
+import footerPattern from "../../assets/footer-pattern.png"
 
 const FooterLinks = [
   { title: "الرئيسية", path: "/" },
@@ -144,7 +145,10 @@ const SocialLink = ({ href, icon: Icon }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-zait  text-white">
+    // <footer className="bg-zait  text-white bg-[url({footerPattern})]">
+    <footer className={`bg-zait text-white bg-[url('${footerPattern}')]`}>
+
+      
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}

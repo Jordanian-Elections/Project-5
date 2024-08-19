@@ -156,27 +156,27 @@ const App = () => {
       <Routes>
         {/* Public Route */}
         <Route path="/" element={<Home />} />
-//         <Route path="/electoral" element={<Electoral />} />
-//         <Route path="/about" element={<AboutUS />} />
-//         <Route path="/contact" element={<ContactUS />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/signup" element={<SignIn />} />
+         <Route path="/electoral" element={<Electoral />} />
+         <Route path="/about" element={<AboutUS />} />
+         <Route path="/contact" element={<ContactUS />} />
+         <Route path="/login" element={<Login />} />
+         <Route path="/signup" element={<SignIn />} />
 
-//         <Route path="/local-lists" element={<LocalLists />} />
-//         <Route path="/party-lists" element={<PartyListsPage />} />
-//         <Route path="/circle" element={<ElectoralDistricts />} />
+         <Route path="/local-lists" element={<LocalLists />} />
+         <Route path="/party-lists" element={<PartyListsPage />} />
+         <Route path="/circle" element={<ElectoralDistricts />} />
 
-//         {/* Routing for Election Forms */}
-//         <Route path="/requests" element={<ElectionRequests />} />
-//         <Route path="/local-form" element={<LocalElectionForm />} />
-//         <Route path="/party-form" element={<PartyElectionForm />} />
-//         <Route path="/party-lists" element={<PartyListsPage />} />
-//         <Route path="/PaymentComponent" element={<PaymentComponent />} />
-//         <Route path="/VotingApp" element={<VotingApp />} />
-//         <Route path="/VotePage" element={<VotePage />} />
-//         <Route path="/ListVotes" element={<ListVotes />} />
+         {/* Routing for Election Forms */}
+         <Route path="/requests" element={<ElectionRequests />} />
+         <Route path="/local-form" element={<LocalElectionForm />} />
+         <Route path="/party-form" element={<PartyElectionForm />} />
+         <Route path="/party-lists" element={<PartyListsPage />} />
+         <Route path="/PaymentComponent" element={<PaymentComponent />} />
+         <Route path="/VotingApp" element={<VotingApp />} />
+         <Route path="/VotePage" element={<VotePage />} />
+         <Route path="/ListVotes" element={<ListVotes />} />
         {/* Protected Routes */}
-        <Route path="/electoral" element={<PrivateRoute element={<Electoral />} />} />
+        {/* <Route path="/electoral" element={<PrivateRoute element={<Electoral />} />} />
         <Route path="/about" element= {<AboutUS />} />
         <Route path="/contact" element={<PrivateRoute element={<ContactUS />} />} />
         <Route path="/login"  element={<Login />}  />
@@ -197,11 +197,11 @@ const App = () => {
         <Route path="/Debate-screen" element={<PrivateRoute element={<Debate_screen />} />} />
         <Route path="/Debate-Room/:roomId" element={<PrivateRoute element={<Debate_Room />} />} />
         {/* <Route path="/ads" element={<PrivateRoute element={<RequestAdForm />} />} /> */}
-        <Route path="/ads" element={<RequestAdForm />} />
+        {/* <Route path="/ads" element={<RequestAdForm />} /> */}
         <Route path="/requests" element={<ElectionRequests />} />
         <Route path="/local-form" element={<LocalElectionForm />} />
         <Route path="/party-form" element={<PartyElectionForm />} />
-        <Route path="/create-debate" element={<CreateDebate />} />
+        <Route path="/create-debate" element={<CreateDebate />} /> 
 
 
       </Routes>

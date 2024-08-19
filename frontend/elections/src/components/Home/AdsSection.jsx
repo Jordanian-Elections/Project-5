@@ -45,7 +45,7 @@
 //               <img
 //                 src={ad.image_url}
 //                 alt={`Ad for ${ad.candidate_name}`}
-//                 className="w-full h-48 object-cover rounded-md mb-4"
+//                 className="w-xl h-48 object-cover rounded-md mb-4"
 //                 onError={(e) => {
 //                   e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
 //                 }}
@@ -60,8 +60,8 @@
 //       <div className="text-center mt-8">
 //         <button
 //           onClick={handleRequestAd}
-//           className="bg-red-600 text-white font-bold py-2 px-4 rounded-full 
-//                      hover:bg-red-700 transition-colors duration-300 
+//           className="bg-zait text-white font-bold py-2 px-4 rounded-xl 
+//                      hover:bg-gray-600 transition-colors duration-300 
 //                      focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 mb-14"
 //         >
 //           اطلب إعلان
@@ -134,7 +134,7 @@ const AdsSection = () => {
       </div>
       <div className="p-4">
         <p className="text-gray-600 text-sm mb-2">{ad.description}</p>
-        <button className="mt-2 bg-red-600 text-white text-sm font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+        <button className="mt-2 bg-zait text-white text-sm font-semibold py-2 px-4 rounded-xl hover:bg-gray-600 transition-colors duration-300">
           المزيد من التفاصيل
         </button>
       </div>
@@ -142,18 +142,18 @@ const AdsSection = () => {
   );
 
   return (
-    <section className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="bg-zait1 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
+        <h2 className="text-center text-4xl font-bold text-zait mb-12">
           إعلانات المرشحين
         </h2>
 
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <FaSpinner className="animate-spin text-4xl text-red-600" />
+            <FaSpinner className="animate-spin text-4xl text-zait" />
           </div>
         ) : error ? (
-          <div className="text-center text-red-600">
+          <div className="text-center text-zait">
             <FaExclamationTriangle className="inline-block mr-2" />
             {error}
           </div>
@@ -170,9 +170,9 @@ const AdsSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleRequestAd}
-            className="bg-red-600 text-white font-bold py-3 px-6 rounded-full 
-                       hover:bg-red-700 transition-colors duration-300 
-                       focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50
+            className="bg-zait text-white font-bold py-3 px-6 rounded-xl 
+                       hover:bg-gray-600 transition-colors duration-300 
+                       focus:outline-none focus:ring-2 focus:ring-zait1 focus:ring-opacity-50
                        flex items-center justify-center mx-auto"
           >
             <FaPlusCircle className="mr-2" />

@@ -403,51 +403,31 @@ const Logocar = () => {
 
     return (
 
-        <section className='my-10' style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' }}>
-            <h2  className='text-4xl font-extrabold  text-center text-jordanian-red mb-20'>الجهات المعنيه والشركاء </h2>
-            <div style={{ position: 'relative', width: '100%', height: '7rem' }}>
-                <div style={{
-                    display: 'flex',
-                    flexWrap: 'nowrap',
-                    gap: '2rem',
-                    animation: 'scroll 20s linear infinite',
-                }}>
-                    {logoUrls.concat(logoUrls).map((url, index) => (
-                        <img
-                            key={index}
-                            src={url}
-                            alt={`Sponsor logo ${index + 1}`}
-                            style={{
-                                height: '8rem',
-                                flexShrink: 0,
-                                marginRight: '2rem',
-                            }}
-                        />
-                    ))}
-                </div>
-            </div>
-
-        //     <div className='relative bg-zait1'>
-        //       <FaUsers className="mr-2" />
-        //          <h2 className="text-4xl font-bold mb-4 grid items-center text-zait">
-        //       شركاؤنا
-        //     </h2>
-        //         <Slider {...settings}>
-        //             {logoUrls.map((url, index) => (
-        //                 <div key={index} className='p-4 bg-zait1'>
-        //                     <div className='bg-white w-72 h-72 m-20 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105'>
-        //                         <img
-        //                             src={url}
-        //                             alt={`Sponsor logo ${index + 1}`}
-        //                             className='w-full  h-full object-contain p-4 rounded-lg'
-        //                         />
-        //                     </div>
-        //                 </div>
+        // <section className='my-10' style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' }}>
+        //     <h2  className='text-4xl font-extrabold  text-center text-jordanian-red mb-20'>الجهات المعنيه والشركاء </h2>
+        //     <div style={{ position: 'relative', width: '100%', height: '7rem' }}>
+        //         <div style={{
+        //             display: 'flex',
+        //             flexWrap: 'nowrap',
+        //             gap: '2rem',
+        //             animation: 'scroll 20s linear infinite',
+        //         }}>
+        //             {logoUrls.concat(logoUrls).map((url, index) => (
+        //                 <img
+        //                     key={index}
+        //                     src={url}
+        //                     alt={`Sponsor logo ${index + 1}`}
+        //                     style={{
+        //                         height: '8rem',
+        //                         flexShrink: 0,
+        //                         marginRight: '2rem',
+        //                     }}
+        //                 />
         //             ))}
-        //         </Slider>
+        //         </div>
         //     </div>
-        // </section>
-
+            
+<section>
         <section className='my-10 py-12 bg-white text-center'>
         <div className='relative bg-zait1 py-20'>
             <div className='flex justify-center items-center mb-6'>
@@ -470,6 +450,7 @@ const Logocar = () => {
                 ))}
             </Slider>
         </div>
+    </section>
     </section>
     );
 };
