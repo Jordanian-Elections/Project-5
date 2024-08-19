@@ -53,10 +53,6 @@ const authService = require('../services/authService');
 const bcrypt = require('bcrypt');
 const knex = require('../knex-config');
 
-
-
-
-
 exports.login = async (req, res) => {
   try {
     const { national_id, name } = req.body;
