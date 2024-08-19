@@ -156,7 +156,11 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+const knex = require('knex');
+const knexConfig = require('./knexfile'); // استيراد ملف التكوين
 
+// إعداد الاتصال بقاعدة البيانات
+const db = knex(knexConfig.development);
 const authRoutes = require("./routes/authRoutes");
 const localListsRoutes = require("./routes/localListsRoutes");
 const partyListsRoutes = require("./routes/partyListsRoutes");
@@ -175,11 +179,9 @@ const resultPartyrouter = require('./routes/resultPartyrouter');
 const adsRoutes = require('./routes/adsRoutes');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
 
-const chatRoutes = require('./routes/chatRouter')
+const chatRoutes = require('./routes/chatRouter');
 
-
-
-const payments=require('./routes/paymentRoutes')
+const payments=require('./routes/paymentRoutes');
 
 const app = express();
 
@@ -207,6 +209,8 @@ app.use('/api/debates', debateRoutes); // New route for debates
 
 
 app.use('/api/chat', chatRoutes);
+app.use('/payments', payments);
+
 
 
 
@@ -281,6 +285,23 @@ app.use('/api/chat', chatRoutes);
 //   console.error(err.stack);
 //   res.status(500).send("Something broke!");
 // });
+
+
+// نقطة النهاية للتحقق من الأرقام الوطنية
+app.post('/check-candidates', async (req, res) => {
+  const { candidate1_id, candidate2_id } = req.body;
+
+  try {
+    const candidates = await db('users').whereIn('national_id', [candidate1_id, candidate2_id]);
+
+    const valid = candidates.length === 2;
+    res.json({ valid });
+  } catch (error) {
+    console.error('Error checking candidates:', error.message);
+    res.status(500).json({ valid: false });
+  }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
