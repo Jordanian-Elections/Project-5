@@ -162,10 +162,16 @@ const partyListsRoutes = require("./routes/partyListsRoutes");
 const electoralDistrictsRoute = require("./routes/electoralDistricts");
 const userAuthRoutes = require("./routes/userAuthRoutes");
 const requestsRoutes = require("./routes/requestsRoutes");
+// tasneem
+
 const routerVotingCircle = require("./routes/routerVotingCircle");
 const routerVotingparty = require("./routes/routingPartylist");
-const adsRoutes = require('./routes/adsRoutes');
 const resultRouter = require('./routes/resulRouter');
+const resultPartyrouter = require('./routes/resultPartyrouter');
+
+
+// end tasneem
+const adsRoutes = require('./routes/adsRoutes');
 const debateRoutes = require('./routes/debateRoutes'); // New import for debate routes
 
 
@@ -184,9 +190,11 @@ app.use("/api/electoral-districts", electoralDistrictsRoute);
 app.use("/api/userAuth", userAuthRoutes);
 app.use("/api/requests", requestsRoutes);
 app.use('/api', adsRoutes);
+// tasneem Routes
 app.use("/api/voting", routerVotingCircle);
 app.use("/", routerVotingparty);
 app.use('/', resultRouter);
+// end tasneem Routes
 app.use('/api/debates', debateRoutes); // New route for debates
 // Stripe configuration
 
@@ -228,7 +236,9 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+//TasneemTest1234@

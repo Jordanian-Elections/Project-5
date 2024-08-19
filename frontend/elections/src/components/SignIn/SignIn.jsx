@@ -217,6 +217,13 @@ function SignIn() {
         otp,
       });
       Cookies.set('token', response.data.token); // Store the token in a cookie
+      console.log(response.data.national_id);
+
+      
+      sessionStorage.setItem('national_id', response.data.national_id);
+      sessionStorage.setItem('national_id', response.data.token);
+
+
       alert('Login successful');
       setStep(3);
     } catch (error) {
