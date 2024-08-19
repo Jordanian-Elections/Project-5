@@ -11,3 +11,15 @@
 5. Enhance Civic Engagement: By participating in simulations and interactions on "Entakheb," citizens can better understand the electoral process and become more engaged in their community's political landscape.
 6 Educational Tool: "Entakheb" serves as an educational resource, helping users learn about electoral systems, the importance of voting, and how various elements of an election process function.
 
+## Tools we used
+### PERN STACK
+1. PostgreSQL
+2. Express
+3. React 
+4. Node.js 
+5. Figma
+6. Trello
+7. Tailwind CSS
+8. knex.js
+
+
